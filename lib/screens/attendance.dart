@@ -1,3 +1,4 @@
+import 'package:datascape/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 
 class Attendance extends StatelessWidget {
@@ -6,7 +7,10 @@ class Attendance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60),
+          child: customAppbar()
+      ),
     );
   }
 }
