@@ -66,7 +66,7 @@ class _NavBarBottomState extends State<NavBarBottom> {
                     icon: Icon(Icons.door_back_door_outlined), label: "Leave"),
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.money_dollar_circle),
-                    label: "Task"),
+                    label: "Tasked"),
               ]
           ),
         ),
