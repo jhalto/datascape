@@ -18,7 +18,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(preferredSize: Size.fromHeight(60), child: customAppbar()),
-      body: Column()
+      body: Container(
+        child: Column(
+
+        ),
+      )
 
     );
   }
