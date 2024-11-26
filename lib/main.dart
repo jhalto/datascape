@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Datascape',
-      theme: ThemeData.light(),
+      theme: ThemeData.light(
+      ),
       darkTheme: ThemeData.dark(),
       home: CurvedNavBar(),
     );

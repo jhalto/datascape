@@ -11,6 +11,11 @@ class Attendance extends StatelessWidget {
           preferredSize: Size.fromHeight(60),
           child: customAppbar()
       ),
+      body: Column(
+        children: [
+
+        ],
+      ),
     );
   }
 }

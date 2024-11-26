@@ -12,20 +12,33 @@ class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
 }
-class _HomeState extends State<Home> {
 
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(preferredSize: Size.fromHeight(60), child: customAppbar()),
-      body: Container(
-        child: Column(
+      backgroundColor: Colors.black12,
+        appBar: PreferredSize(
+            preferredSize: Size.fromHeight(60), child: customAppbar()),
+        body: Column(
+          children: [
+            Container(
+              height: 50,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
 
+                      ),
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
-      )
-
     );
   }
 }
-
-
