@@ -29,9 +29,9 @@ class _HomeState extends State<Home> {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-
+                        color: Colors.white,
                       ),
-                      color: Colors.white,
+
                     ),
                   ),
                 ],

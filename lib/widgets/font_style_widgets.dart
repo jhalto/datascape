@@ -9,3 +9,9 @@ myStyle([double? fs, Color? clr,FontWeight? fw]){
     fontWeight: fw,
   );
 }
+h1Title(){
+  return TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 50,
+  );
+}

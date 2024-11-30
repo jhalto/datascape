@@ -1,5 +1,6 @@
 import 'package:datascape/curved_nav_bar.dart';
 import 'package:datascape/nav_bar_bottom.dart';
+import 'package:datascape/screens/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(
       ),
       darkTheme: ThemeData.dark(),
-      home: CurvedNavBar(),
+      home: Login(),
     );
   }
 }
