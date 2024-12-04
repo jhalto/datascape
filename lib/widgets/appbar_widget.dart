@@ -1,4 +1,5 @@
 
+import 'package:datascape/screens/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -47,13 +48,21 @@ class _customAppbarState extends State<customAppbar> {
 
             Icon(CupertinoIcons.bell_fill,color: sada,size: 40,),
             SizedBox(width: 10,),
-          PopupMenuButton(itemBuilder: (context) => [
+          PopupMenuButton(
+            onSelected: (value) {
+              if (value == 'Logout') {
+                Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => Login()),
+                      (route) => false,
+                );
+              }
+            }
+            ,itemBuilder: (context) => [
             PopupMenuItem(
-                onTap: (){
-
-                },
+                value: "Logout",
                 child: Text("Logout")),
-            PopupMenuItem(child: Text("hello"))
+            PopupMenuItem(child: Text("hello")),
+
           ],
               child: CircleAvatar(
                 backgroundImage: AssetImage("lib/images/google-logo.png"),
