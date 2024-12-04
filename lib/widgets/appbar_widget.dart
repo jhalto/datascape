@@ -6,22 +6,24 @@ import 'color_widgets.dart';
 import 'font_style_widgets.dart';
 
 class customAppbar extends StatelessWidget {
-  const customAppbar({
-    super.key,
+  customAppbar({
+    super.key, this.onPressed
   });
-
+  VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       height: double.infinity,
       color: koraNeel,
       child: Padding(
         padding: const EdgeInsets.only(left: 15, right: 15,top: 50),
         child: Row(
+          
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.menu,size: 40,color: sada,),
+            IconButton(onPressed: onPressed, icon: Icon(Icons.menu,color: Colors.white,)),
             SizedBox(width: 15,),
             SizedBox(
               width: 220,
@@ -34,7 +36,7 @@ class customAppbar extends StatelessWidget {
               ),
             ),
             SizedBox(width: 20,),
-
+         
             Icon(CupertinoIcons.bell_fill,color: sada,size: 40,),
             SizedBox(width: 10,),
             CircleAvatar(

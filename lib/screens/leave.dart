@@ -20,7 +20,8 @@ class _LeaveState extends State<Leave> {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(60),
-          child: customAppbar()
+          child: customAppbar(
+          )
       ),
       body: Column(
         children: [

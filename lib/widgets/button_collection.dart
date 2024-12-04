@@ -1,6 +1,7 @@
+import 'package:datascape/widgets/font_style_widgets.dart';
 import 'package:flutter/material.dart';
 
-whiteButton(BuildContext context, VoidCallback onPressed, IconData icon, String text){
+whiteButton(BuildContext context, VoidCallback onPressed, Widget logo, String text){
    return MaterialButton(
      shape: RoundedRectangleBorder(
        borderRadius: BorderRadius.circular(7),
@@ -9,13 +10,14 @@ whiteButton(BuildContext context, VoidCallback onPressed, IconData icon, String 
        onPressed: onPressed,
       child: SizedBox(
         height: 55,
-        width: MediaQuery.of(context).size.width*.75,
+
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Icon(icon),
+            SizedBox(width: 35,),
+            logo,
             SizedBox(width: 30,),
-            Text(text),
+            Text(text,style: myStyle(16),),
           ],
         ),
       ),

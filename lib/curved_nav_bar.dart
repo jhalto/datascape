@@ -19,7 +19,7 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
     Home(),
     Attendance(),
     Leave(),
-    Payroll(),
+    Task(),
 
   ];
   @override

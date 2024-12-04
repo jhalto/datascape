@@ -19,7 +19,7 @@ class _NavBarBottomState extends State<NavBarBottom> {
     Home(),
     Attendance(),
     Leave(),
-    Payroll(),
+    Task(),
 
   ];
 

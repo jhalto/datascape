@@ -9,7 +9,9 @@ class Attendance extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(60),
-          child: customAppbar()
+          child: customAppbar(
+            onPressed: (){},
+          )
       ),
       body: Column(
         children: [
