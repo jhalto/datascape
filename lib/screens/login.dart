@@ -15,77 +15,84 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _drawerController = AdvancedDrawerController();
+
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return AdvancedDrawer(
-      controller: _drawerController,
-      drawer: DrawerDesign(),
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Positioned(
-              left: -100,
-              top: -200,
-              child: Transform.rotate(
-                angle: pi*.35,
-                child: Container(
-                  height: MediaQuery.of(context).size.height*.700,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage("lib/images/images (1).jpg"))),
+    var screenHeight = MediaQuery.of(context).size.height;
+    var screenWidth = MediaQuery.of(context).size.height;
+    return Scaffold(
+
+      body: Stack(
+        children: [
+          Positioned(
+            left: -screenWidth * 0.2, // Adjust dynamically based on screen width
+            top: -screenHeight * 0.3, // Adjust dynamically based on screen height
+            child: Transform.rotate(
+              angle: pi * 0.35,
+              child: Container(
+                height: screenHeight * .70, // Scale height dynamically
+                width: screenWidth * .60, // Scale width dynamically
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover, // Ensure the image fills the container
+                    image: AssetImage("lib/images/images (1).jpg"),
+                  ),
                 ),
               ),
             ),
-            Positioned(
-              right: 50,
-                top: 215,
-                child: CircleAvatar(
-                  radius: 70,
-                  backgroundImage: AssetImage("lib/images/electric.jpg"),)
-            ),
+          ),
+          // Positioned(
+          //   right: MediaQuery.of(context).size.height*.06,
+          //     top: MediaQuery.of(context).size.height*.16,
+          //     child: CircleAvatar(
+          //       radius: 50,
+          //       backgroundImage: AssetImage("lib/images/electric.jpg"),)
+          // ),
 
-            Container(
-              width: double.infinity,
-              padding:  EdgeInsets.symmetric(horizontal: 40),
+          Container(
+            width: double.infinity,
+            padding:  EdgeInsets.symmetric(horizontal: 40),
 
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
 
-                children: [
-                    SizedBox(height: 120,),
-                    Text("Login",style: h1Title(),),
-                    SizedBox(height: 40,),
-                    customTextFromField(hintText: "Email", controller: _emailController),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    customTextFromField(hintText: "Password", controller: _passwordController),
+              children: [
+                  SizedBox(height: 150,),
+                  Text("Login",style: h1Title(),),
+                  SizedBox(height: 40,),
+                  customTextFromField(hintText: "Email", controller: _emailController),
                   SizedBox(
                     height: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
-                    child: Divider(),
+                  customTextFromField(hintText: "Password", controller: _passwordController),
+                 SizedBox(height: 10,),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text("Forgot Password"),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: Divider(),
+                ),
+                Text("or"),
+                  SizedBox(height: 20,),
+                  whiteButton(
+                    context,
+                      (){},
+                      Image.asset("lib/images/google-logo.png",height: 35,width: 35,),
+                    "Continue with Google"
                   ),
-                  Text("or"),
-                    SizedBox(height: 20,),
-                    whiteButton(
-                      context,
-                        (){},
-                        Image.asset("lib/images/google-logo.png",height: 35,width: 35,),
-                      "Continue with Google"
-                    ),
 
-                ],
-              ),
-            )
-          ],
-        )
-      ),
+              ],
+            ),
+          )
+        ],
+      )
     );
   }
 }

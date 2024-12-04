@@ -12,9 +12,8 @@ whiteButton(BuildContext context, VoidCallback onPressed, Widget logo, String te
         height: 55,
 
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(width: 35,),
             logo,
             SizedBox(width: 30,),
             Text(text,style: myStyle(16),),
