@@ -5,25 +5,33 @@ import 'package:flutter/material.dart';
 import 'color_widgets.dart';
 import 'font_style_widgets.dart';
 
-class customAppbar extends StatelessWidget {
+class customAppbar extends StatefulWidget {
   customAppbar({
     super.key, this.onPressed
   });
   VoidCallback? onPressed;
+
+  @override
+  State<customAppbar> createState() => _customAppbarState();
+}
+
+class _customAppbarState extends State<customAppbar> {
+  String? _selectedValue;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      
+
       height: double.infinity,
       color: koraNeel,
       child: Padding(
         padding: const EdgeInsets.only(left: 15, right: 15,top: 50),
         child: Row(
-          
+
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            IconButton(onPressed: onPressed, icon: Icon(Icons.menu,color: Colors.white,)),
+            IconButton(onPressed: widget.onPressed, icon: Icon(Icons.menu,color: Colors.white,)),
             SizedBox(width: 15,),
             SizedBox(
               width: 220,
@@ -36,12 +44,22 @@ class customAppbar extends StatelessWidget {
               ),
             ),
             SizedBox(width: 20,),
-         
+
             Icon(CupertinoIcons.bell_fill,color: sada,size: 40,),
             SizedBox(width: 10,),
-            CircleAvatar(
-              child: Icon(CupertinoIcons.person_alt_circle_fill),
-            ),
+          PopupMenuButton(itemBuilder: (context) => [
+            PopupMenuItem(
+                onTap: (){
+
+                },
+                child: Text("Logout")),
+            PopupMenuItem(child: Text("hello"))
+          ],
+              child: CircleAvatar(
+                backgroundImage: AssetImage("lib/images/google-logo.png"),
+              ),
+          ),
+
           ],
         ),
       ),

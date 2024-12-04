@@ -23,7 +23,7 @@ class _LoginState extends State<Login> {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.height;
     return Scaffold(
-
+        resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Positioned(
@@ -55,40 +55,42 @@ class _LoginState extends State<Login> {
             width: double.infinity,
             padding:  EdgeInsets.symmetric(horizontal: 40),
 
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Form(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
 
-              children: [
-                  SizedBox(height: 150,),
-                  Text("Login",style: h1Title(),),
-                  SizedBox(height: 40,),
-                  customTextFromField(hintText: "Email", controller: _emailController),
+                children: [
+                    SizedBox(height: 150,),
+                    Text("Login",style: h1Title(),),
+                    SizedBox(height: 40,),
+                    customTextFromField(hintText: "Email", controller: _emailController),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    customTextFromField(hintText: "Password", controller: _passwordController),
+                   SizedBox(height: 10,),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Text("Forgot Password"),
+                  ),
                   SizedBox(
                     height: 20,
                   ),
-                  customTextFromField(hintText: "Password", controller: _passwordController),
-                 SizedBox(height: 10,),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text("Forgot Password"),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
-                  child: Divider(),
-                ),
-                Text("or"),
-                  SizedBox(height: 20,),
-                  whiteButton(
-                    context,
-                      (){},
-                      Image.asset("lib/images/google-logo.png",height: 35,width: 35,),
-                    "Continue with Google"
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                    child: Divider(),
                   ),
+                  Text("or"),
+                    SizedBox(height: 20,),
+                    whiteButton(
+                      context,
+                        (){},
+                        Image.asset("lib/images/google-logo.png",height: 35,width: 35,),
+                      "Continue with Google"
+                    ),
 
-              ],
+                ],
+              ),
             ),
           )
         ],
