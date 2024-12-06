@@ -1,4 +1,3 @@
-import 'package:datascape/add_task_pages/project.dart';
 import 'package:datascape/screens/add_task.dart';
 import 'package:datascape/widgets/custom_colors.dart';
 import 'package:datascape/widgets/font_style_widgets.dart';
@@ -32,61 +31,56 @@ class _TaskListState extends State<TaskList> {
                   ),
 
                   child:  Card(
-
                     color: fieldColor,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(flex:2,child: Text("Title:",style: taskRecordTitle(),)),
+                              Expanded(flex:3,child: Text("default"))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(flex:2,child: Text("Project Name",style: taskRecordTitle(),)),
+                              Expanded(flex:3,child: Text("default")),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(flex:2,child: Text("Assin By",style: taskRecordTitle(),)),
+                              Expanded(flex:3,child: Text("default")),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(flex:2,child: Text("Status",style: taskRecordTitle(),)),
+                              Expanded(flex:3,child: Text("default"))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(flex:2,child: Text("Schedule working date",style: taskRecordTitle(),)),
+                              Expanded(flex:3,child: Text("default"))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(flex:2,child: Text("Completed Date",style: taskRecordTitle(),)),
+                              Expanded(flex:3,child: Text("default"))
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(flex:2,child: Text("Priority",style: taskRecordTitle(),)),
+                              Expanded(flex:3,child: Text("default"))
+                            ],
+                          ),
 
-                        fit: FlexFit.loose,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Expanded(flex:2,child: Text("Title:",style: taskRecordTitle(),)),
-                                Expanded(flex:3,child: Text("default"))
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Expanded(flex:2,child: Text("Project Name",style: taskRecordTitle(),)),
-                                Expanded(flex:3,child: Text("default")),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Expanded(flex:2,child: Text("Assin By",style: taskRecordTitle(),)),
-                                Expanded(flex:3,child: Text("default")),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Expanded(flex:2,child: Text("Status",style: taskRecordTitle(),)),
-                                Expanded(flex:3,child: Text("default"))
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Expanded(flex:2,child: Text("Schedule working date",style: taskRecordTitle(),)),
-                                Expanded(flex:3,child: Text("default"))
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Expanded(flex:2,child: Text("Completed Date",style: taskRecordTitle(),)),
-                                Expanded(flex:3,child: Text("default"))
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Expanded(flex:2,child: Text("Priority",style: taskRecordTitle(),)),
-                                Expanded(flex:3,child: Text("default"))
-                              ],
-                            ),
-
-                          ],
-                        ),
+                        ],
                       ),
                     ),
                   ),
@@ -97,7 +91,7 @@ class _TaskListState extends State<TaskList> {
 
         ),
       ),
-      floatingActionButton: AddTask(),
+      floatingActionButton: AddTask()
     );
   }
 }
