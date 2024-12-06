@@ -35,6 +35,7 @@ class _HomeState extends State<Home> {
 
           )),
           body: Container(
+            padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*.06),
             child: Column(
               children: [
                Expanded(child: Padding(
@@ -46,11 +47,12 @@ class _HomeState extends State<Home> {
                          Navigator.push(context, MaterialPageRoute(builder: (context) => Login(),));
                        },
                        child: Card(
-                       
+
                          child: Column(
                            children: [
                              Container(
-                       
+                                     height: MediaQuery.of(context).size.height*.15,
+                                 width: double.infinity,
                                  child: Image.asset("lib/images/lorem.png",fit: BoxFit.fill,)),
                              Text("My Profile",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                            ],
@@ -63,7 +65,8 @@ class _HomeState extends State<Home> {
                        child: Column(
                          children: [
                            Container(
-
+                               height: MediaQuery.of(context).size.height*.15,
+                               width: double.infinity,
                                child: Image.asset("lib/images/lorem.png",fit: BoxFit.fill,)),
                            Text("My Profile",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                          ],
@@ -81,7 +84,8 @@ class _HomeState extends State<Home> {
                        child: Column(
                          children: [
                            Container(
-
+                             width: double.infinity,
+                               height: MediaQuery.of(context).size.height*.15,
                                child: Image.asset("lib/images/lorem.png",fit: BoxFit.fill,)),
                            Text("My Profile",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                          ],
@@ -93,7 +97,8 @@ class _HomeState extends State<Home> {
                        child: Column(
                          children: [
                            Container(
-
+                             width: double.infinity,
+                               height: MediaQuery.of(context).size.height*.15,
                                child: Image.asset("lib/images/lorem.png",fit: BoxFit.fill,)),
                            Text("My Profile",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                          ],
@@ -111,7 +116,8 @@ class _HomeState extends State<Home> {
                        child: Column(
                          children: [
                            Container(
-
+                             width: double.infinity,
+                               height: MediaQuery.of(context).size.height*.15,
                                child: Image.asset("lib/images/lorem.png",fit: BoxFit.fill,)),
                            Text("My Profile",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                          ],
@@ -123,7 +129,8 @@ class _HomeState extends State<Home> {
                        child: Column(
                          children: [
                            Container(
-
+                             width: double.infinity,
+                               height: MediaQuery.of(context).size.height*.15,
                                child: Image.asset("lib/images/lorem.png",fit: BoxFit.fill,)),
                            Text("My Profile",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                          ],

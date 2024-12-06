@@ -15,3 +15,9 @@ h1Title(){
     fontSize: 50,
   );
 }
+taskRecordTitle(){
+  return TextStyle(
+     fontWeight: FontWeight.bold,
+    fontSize: 14,
+  );
+}

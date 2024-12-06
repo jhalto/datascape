@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:datascape/widgets/button_collection.dart';
+import 'package:datascape/widgets/custom_button.dart';
 import 'package:datascape/widgets/custom_text_from_field.dart';
+import 'package:datascape/widgets/drawer_design.dart';
 import 'package:datascape/widgets/font_style_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -26,16 +28,15 @@ class _LoginState extends State<Login> {
       body: Stack(
         children: [
           Positioned(
-            left: -screenWidth * 0.2, // Adjust dynamically based on screen width
-            top: -screenHeight * 0.3, // Adjust dynamically based on screen height
+
             child: Transform.rotate(
-              angle: pi * 0.35,
+              angle: pi/.35,
               child: Container(
-                height: screenHeight * .70, // Scale height dynamically
-                width: screenWidth * .60, // Scale width dynamically
+                height: screenHeight * .35,
+                width: screenWidth ,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    fit: BoxFit.cover, // Ensure the image fills the container
+                    fit: BoxFit.fill, // Ensure the image fills the container
                     image: AssetImage("lib/images/images (1).jpg"),
                   ),
                 ),
@@ -59,7 +60,7 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
 
                 children: [
-                    SizedBox(height: 150,),
+                    SizedBox(height: 200,),
                     Text("Login",style: h1Title(),),
                     SizedBox(height: 40,),
                     customTextFromField(hintText: "Email", controller: _emailController),
@@ -73,6 +74,10 @@ class _LoginState extends State<Login> {
                     child: Text("Forgot Password"),
                   ),
                   SizedBox(
+                    height: 50,
+                  ),
+                  whiteButton(onPressed: (){}, widget: Text("Sign In")),
+                  SizedBox(
                     height: 20,
                   ),
                   Padding(
@@ -81,7 +86,7 @@ class _LoginState extends State<Login> {
                   ),
                   Text("or"),
                     SizedBox(height: 20,),
-                    whiteButton(
+                    whiteButton2(
                       context,
                         (){},
                         Image.asset("lib/images/google-logo.png",height: 35,width: 35,),

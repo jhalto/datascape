@@ -1,7 +1,7 @@
 import 'package:datascape/widgets/font_style_widgets.dart';
 import 'package:flutter/material.dart';
 
-whiteButton(BuildContext context, VoidCallback onPressed, Widget logo, String text){
+whiteButton2(BuildContext context, VoidCallback onPressed, Widget logo, String text){
    return MaterialButton(
      shape: RoundedRectangleBorder(
        borderRadius: BorderRadius.circular(7),
