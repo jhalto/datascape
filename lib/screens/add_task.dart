@@ -43,7 +43,7 @@ class _AddTaskState extends State<AddTask> {
                 top: 16.0,
                 bottom: MediaQuery.of(context).viewInsets.bottom,),
               child: SizedBox(
-                height: 200,
+                height: 100,
                 child: PageView(
                   controller: _pageController, // Link the PageController
                   children: [
