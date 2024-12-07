@@ -36,33 +36,45 @@ class _AddTaskState extends State<AddTask> {
             Future.delayed(Duration.zero, () {
               _focusNodeProject.requestFocus();
             });
-            return SizedBox(
-              height: 400,
-              child: PageView(
-                controller: _pageController, // Link the PageController
-                children: [
-                  BottomForm(
-                    function: () {
-                      _pageController.nextPage(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                      Future.delayed(const Duration(milliseconds: 300), () {
-                        _focusNodeTitle.requestFocus();
-                      });
-                    },
-                    focusNode: _focusNodeProject,
-                    textEditingController: _projectController,
-                  ),
-                  BottomForm(
-                    function: () {
-                      // Final action
-                      _focusNodeTitle.unfocus();
-                    },
-                    focusNode: _focusNodeTitle,
-                    textEditingController: _titleController,
-                  ),
-                ],
+            return Padding(
+                padding: EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                top: 16.0,
+                bottom: MediaQuery.of(context).viewInsets.bottom,),
+              child: SizedBox(
+                height: 200,
+                child: PageView(
+                  controller: _pageController, // Link the PageController
+                  children: [
+                    BottomForm(
+                      hint: "Project Name",
+                      function: () {
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 1
+
+                          ),
+                          curve: Curves.easeInOut,
+
+                        );
+                        Future.delayed(const Duration(milliseconds: 1), () {
+                          _focusNodeTitle.requestFocus();
+                        });
+                      },
+                      focusNode: _focusNodeProject,
+                      textEditingController: _projectController,
+                    ),
+                    BottomForm(
+                      hint: "Title",
+                      function: () {
+                        // Final action
+                        _focusNodeTitle.unfocus();
+                      },
+                      focusNode: _focusNodeTitle,
+                      textEditingController: _titleController,
+                    ),
+                  ],
+                ),
               ),
             );
           },
@@ -79,20 +91,19 @@ class BottomForm extends StatelessWidget {
     required this.function,
     required this.focusNode,
     required this.textEditingController,
+    required this.hint,
   });
 
   final VoidCallback function;
   final FocusNode focusNode;
   final TextEditingController textEditingController;
-
+  final String hint;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        left: 16.0,
-        right: 16.0,
-        top: 16.0,
-        bottom: MediaQuery.of(context).viewInsets.bottom,
+      padding: EdgeInsets.all(
+         16.0,
+
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -100,10 +111,23 @@ class BottomForm extends StatelessWidget {
           TextField(
             onEditingComplete: function, // Trigger the navigation function
             focusNode: focusNode,
+
             controller: textEditingController,
-            decoration: const InputDecoration(
-              labelText: 'Enter Text',
-              border: OutlineInputBorder(),
+            decoration: InputDecoration(
+              hintText: hint,
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent
+                )
+              ),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.transparent)
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent
+                )
+              )
             ),
           ),
         ],
