@@ -27,29 +27,6 @@ class _LoginState extends State<Login> {
         resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Positioned(
-
-            child: Transform.rotate(
-              angle: pi/.35,
-              child: Container(
-                height: screenHeight * .35,
-                width: screenWidth ,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fill, // Ensure the image fills the container
-                    image: AssetImage("lib/images/images (1).jpg"),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          // Positioned(
-          //   right: MediaQuery.of(context).size.height*.06,
-          //     top: MediaQuery.of(context).size.height*.16,
-          //     child: CircleAvatar(
-          //       radius: 50,
-          //       backgroundImage: AssetImage("lib/images/electric.jpg"),)
-          // ),
 
           Container(
             width: double.infinity,
@@ -60,7 +37,7 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
 
                 children: [
-                    SizedBox(height: 200,),
+
                     Text("Login",style: h1Title(),),
                     SizedBox(height: 40,),
                     customTextFromField(hintText: "Email", controller: _emailController),
