@@ -6,7 +6,7 @@ import 'package:datascape/screens/attendance.dart';
 import 'package:datascape/screens/home.dart';
 import 'package:datascape/screens/leave.dart';
 import 'package:datascape/screens/login.dart';
-import 'package:datascape/screens/records.dart';
+import 'package:datascape/screens/task_list.dart';
 import 'package:datascape/screens/task.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         
       ),
       darkTheme: ThemeData.dark(),
-      home: TaskList()
+      home: PersistentNavBar()
     );
   }
 }

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class AddTask extends StatefulWidget {
   const AddTask({super.key});
@@ -12,7 +14,9 @@ class _AddTaskState extends State<AddTask> {
   final TextEditingController _titleController = TextEditingController();
   final FocusNode _focusNodeProject = FocusNode();
   final FocusNode _focusNodeTitle = FocusNode();
-  final PageController _pageController = PageController();
+  var selectedDate = DateTime.now();
+
+  var focusDate = DateTime.now();
 
   @override
   void dispose() {
@@ -20,7 +24,7 @@ class _AddTaskState extends State<AddTask> {
     _focusNodeTitle.dispose();
     _projectController.dispose();
     _titleController.dispose();
-    _pageController.dispose();
+
     super.dispose();
   }
 
@@ -42,43 +46,64 @@ class _AddTaskState extends State<AddTask> {
                 right: 16.0,
                 top: 16.0,
                 bottom: MediaQuery.of(context).viewInsets.bottom,),
-              child: SizedBox(
-                height: 100,
-                child: PageView(
-                  controller: _pageController, // Link the PageController
-                  children: [
-                    BottomForm(
-                      hint: "Project Name",
-                      function: () {
-                        _pageController.nextPage(
-                          duration: const Duration(milliseconds: 1
+              child: Wrap(
+                children: [
+                  BottomForm(
+                    hint: "Project Name",
+                    function: () {
 
+                      Future.delayed(const Duration(milliseconds: 1), () {
+                        _focusNodeTitle.requestFocus();
+                        Navigator.pop(context);
+
+                      });
+
+                    },
+                    focusNode: _focusNodeProject,
+                    textEditingController: _projectController,
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.menu),
+                      IconButton(onPressed: (){
+                        showAdaptiveDialog(context: context, builder: (context) => Dialog(
+                          child: Container(
+                            child: Column(
+                              children: [
+
+                                TableCalendar(
+
+                                  focusedDay: DateTime.now(),
+                                  firstDay: DateTime.utc(2024),
+                                  lastDay: DateTime.utc(2030),
+                                  selectedDayPredicate: (day) {
+                                    return isSameDay(selectedDate, day);
+                                  },
+                                  onDaySelected: (selectedDay, focusedDay) {
+                                    setState(() {
+                                      selectedDate = selectedDay;
+                                      focusDate = focusedDay; // update `_focusedDay` here as well
+                                    });
+                                    Navigator.pop(context); // Close the dialog after selection
+                                  },
+
+                                )
+                              ],
+                            ),
                           ),
-                          curve: Curves.easeInOut,
 
-                        );
-                        Future.delayed(const Duration(milliseconds: 1), () {
-                          _focusNodeTitle.requestFocus();
-                        });
-                      },
-                      focusNode: _focusNodeProject,
-                      textEditingController: _projectController,
-                    ),
-                    BottomForm(
-                      hint: "Title",
-                      function: () {
-                        // Final action
-                        _focusNodeTitle.unfocus();
-                      },
-                      focusNode: _focusNodeTitle,
-                      textEditingController: _titleController,
-                    ),
-                  ],
-                ),
+
+                        ),);
+
+                      }, icon: Icon(CupertinoIcons.time))
+                    ],
+                  )
+                ],
               ),
             );
           },
         );
+
       },
       child: const Icon(Icons.add),
     );

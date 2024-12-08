@@ -1,3 +1,4 @@
+import 'package:datascape/screens/task_list.dart';
 import 'package:datascape/task_pages/abp.dart';
 import 'package:datascape/task_pages/compliance_tracker.dart';
 import 'package:datascape/task_pages/decision_log.dart';
@@ -80,7 +81,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => TaskManagement(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TaskList(),));
                   },
                 ),
                 ListTile(

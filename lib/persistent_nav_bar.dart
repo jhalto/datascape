@@ -1,6 +1,7 @@
 import 'package:datascape/screens/attendance.dart';
 import 'package:datascape/screens/home.dart';
 import 'package:datascape/screens/leave.dart';
+import 'package:datascape/screens/task_list.dart';
 import 'package:datascape/screens/task.dart';
 import 'package:datascape/widgets/drawer_design.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _PersistentNavBarState extends State<PersistentNavBar> {
   Widget build(BuildContext context) {
     return PersistentTabView(
      stateManagement: true,
-       navBarHeight: MediaQuery.of(context).size.height *.08,
+       navBarHeight: MediaQuery.of(context).size.height *.06,
       tabs: [
         PersistentTabConfig(
           screen: Home(),
