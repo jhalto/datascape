@@ -21,7 +21,7 @@ class _PersistentNavBarState extends State<PersistentNavBar> {
   Widget build(BuildContext context) {
     return PersistentTabView(
      stateManagement: true,
-       navBarHeight: MediaQuery.of(context).size.height *.06,
+       navBarHeight: MediaQuery.of(context).size.height *.07,
       tabs: [
         PersistentTabConfig(
           screen: Home(),

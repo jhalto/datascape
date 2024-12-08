@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class AddTask extends StatefulWidget {
@@ -56,6 +57,7 @@ class _AddTaskState extends State<AddTask> {
                         _focusNodeTitle.requestFocus();
                         Navigator.pop(context);
 
+
                       });
 
                     },
@@ -66,29 +68,30 @@ class _AddTaskState extends State<AddTask> {
                     children: [
                       Icon(Icons.menu),
                       IconButton(onPressed: (){
+
+                        SystemChannels.textInput.invokeMethod('TextInput.hide');
                         showAdaptiveDialog(context: context, builder: (context) => Dialog(
-                          child: Container(
-                            child: Column(
-                              children: [
-
-                                TableCalendar(
-
-                                  focusedDay: DateTime.now(),
-                                  firstDay: DateTime.utc(2024),
-                                  lastDay: DateTime.utc(2030),
-                                  selectedDayPredicate: (day) {
-                                    return isSameDay(selectedDate, day);
-                                  },
-                                  onDaySelected: (selectedDay, focusedDay) {
-                                    setState(() {
-                                      selectedDate = selectedDay;
-                                      focusDate = focusedDay; // update `_focusedDay` here as well
-                                    });
-                                    Navigator.pop(context); // Close the dialog after selection
-                                  },
-
-                                )
-                              ],
+                          child: SingleChildScrollView(
+                            child: Container(
+                              height: 350,
+                              child: TableCalendar(
+                              
+                              
+                                focusedDay: DateTime.now(),
+                                firstDay: DateTime.utc(2024),
+                                lastDay: DateTime.utc(2030),
+                                selectedDayPredicate: (day) {
+                                  return isSameDay(selectedDate, day);
+                                },
+                                onDaySelected: (selectedDay, focusedDay) {
+                                  setState(() {
+                                    selectedDate = selectedDay;
+                                    focusDate = focusedDay; // update `_focusedDay` here as well
+                                  });
+                                  Navigator.pop(context); // Close the dialog after selection
+                                },
+                              
+                              ),
                             ),
                           ),
 

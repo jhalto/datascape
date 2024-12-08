@@ -56,20 +56,25 @@ class _HomeState extends State<Home> {
                           child: Card(
                             child: Column(
                               children: [
-                                Container(
-                                  height:
-                                  MediaQuery.of(context).size.height * 0.20,
-                                  width: double.infinity,
-                                  child: Image.asset(
-                                    "lib/images/lorem.png",
-                                    fit: BoxFit.fill,
+                                Expanded(
+                                  flex: 4,
+                                  child: Container(
+                                    
+                                    width: double.infinity,
+                                    child: Image.asset(
+                                      "lib/images/lorem.png",
+                                      fit: BoxFit.fill,
+                                    ),
                                   ),
                                 ),
-                                const Text(
-                                  "My Profile",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                Expanded(
+                                  flex: 1,
+                                  child: const Text(
+                                    "My Profile",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ],
                             ),
@@ -81,19 +86,25 @@ class _HomeState extends State<Home> {
                         child: Card(
                           child: Column(
                             children: [
-                              Container(
-                                height:
-                                MediaQuery.of(context).size.height * 0.20,
-                                width: double.infinity,
-                                child: Image.asset(
-                                  "lib/images/lorem.png",
-                                  fit: BoxFit.fill,
+                              Expanded(
+                                flex: 4,
+                                child: Container(
+
+                                  width: double.infinity,
+                                  child: Image.asset(
+                                    "lib/images/lorem.png",
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
-                              const Text(
-                                "My Profile",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
+                              Expanded(
+                                flex: 1,
+                                child: const Text(
+                                  "My Profile",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
                               ),
                             ],
                           ),
@@ -122,20 +133,25 @@ class _HomeState extends State<Home> {
                           child: Card(
                             child: Column(
                               children: [
-                                Container(
-                                  height:
-                                  MediaQuery.of(context).size.height * 0.20,
-                                  width: double.infinity,
-                                  child: Image.asset(
-                                    "lib/images/lorem.png",
-                                    fit: BoxFit.fill,
+                                Expanded(
+                                  flex: 4,
+                                  child: Container(
+
+                                    width: double.infinity,
+                                    child: Image.asset(
+                                      "lib/images/lorem.png",
+                                      fit: BoxFit.fill,
+                                    ),
                                   ),
                                 ),
-                                const Text(
-                                  "My Profile",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                Expanded(
+                                  flex: 1,
+                                  child: const Text(
+                                    "My Profile",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ],
                             ),
@@ -147,19 +163,25 @@ class _HomeState extends State<Home> {
                         child: Card(
                           child: Column(
                             children: [
-                              Container(
-                                height:
-                                MediaQuery.of(context).size.height * 0.20,
-                                width: double.infinity,
-                                child: Image.asset(
-                                  "lib/images/lorem.png",
-                                  fit: BoxFit.fill,
+                              Expanded(
+                                flex: 4,
+                                child: Container(
+
+                                  width: double.infinity,
+                                  child: Image.asset(
+                                    "lib/images/lorem.png",
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
-                              const Text(
-                                "My Profile",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
+                              Expanded(
+                                flex: 1,
+                                child: const Text(
+                                  "My Profile",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
                               ),
                             ],
                           ),
@@ -188,20 +210,25 @@ class _HomeState extends State<Home> {
                           child: Card(
                             child: Column(
                               children: [
-                                Container(
-                                  height:
-                                  MediaQuery.of(context).size.height * 0.20,
-                                  width: double.infinity,
-                                  child: Image.asset(
-                                    "lib/images/lorem.png",
-                                    fit: BoxFit.fill,
+                                Expanded(
+                                  flex: 4,
+                                  child: Container(
+
+                                    width: double.infinity,
+                                    child: Image.asset(
+                                      "lib/images/lorem.png",
+                                      fit: BoxFit.fill,
+                                    ),
                                   ),
                                 ),
-                                const Text(
-                                  "My Profile",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16),
+                                Expanded(
+                                  flex: 1,
+                                  child: const Text(
+                                    "My Profile",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
                                 ),
                               ],
                             ),
@@ -213,19 +240,25 @@ class _HomeState extends State<Home> {
                         child: Card(
                           child: Column(
                             children: [
-                              Container(
-                                height:
-                                MediaQuery.of(context).size.height * 0.20,
-                                width: double.infinity,
-                                child: Image.asset(
-                                  "lib/images/lorem.png",
-                                  fit: BoxFit.fill,
+                              Expanded(
+                                flex: 4,
+                                child: Container(
+
+                                  width: double.infinity,
+                                  child: Image.asset(
+                                    "lib/images/lorem.png",
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
-                              const Text(
-                                "My Profile",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
+                              Expanded(
+                                flex: 1,
+                                child: const Text(
+                                  "My Profile",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
                               ),
                             ],
                           ),
