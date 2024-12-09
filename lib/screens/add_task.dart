@@ -15,7 +15,9 @@ class _AddTaskState extends State<AddTask> {
 
   final TextEditingController _projectController = TextEditingController();
   final TextEditingController _detailController = TextEditingController();
+  final TextEditingController _taskController = TextEditingController();
   final FocusNode _focusNodeProject = FocusNode();
+  final FocusNode _focusNodeTask = FocusNode();
   final FocusNode _focusNodeDetail = FocusNode();
   var selectedDate = DateTime.now();
 
@@ -38,6 +40,7 @@ class _AddTaskState extends State<AddTask> {
     _focusNodeDetail.dispose();
     _projectController.dispose();
     _detailController.dispose();
+    _focusNodeTask.dispose();
 
     super.dispose();
   }
@@ -54,7 +57,7 @@ class _AddTaskState extends State<AddTask> {
               builder: (BuildContext context, StateSetter modalSetState) {
                 // Focus the first text field after a short delay
                 Future.delayed(Duration.zero, () {
-                  _focusNodeProject.requestFocus();
+                  _focusNodeTask.requestFocus();
                 });
                 return Padding(
                   padding: EdgeInsets.only(
@@ -66,21 +69,35 @@ class _AddTaskState extends State<AddTask> {
                   child: Wrap(
                     children: [
                       BottomForm(
-                        hint: "Project Name",
+                        hint: "Task Name",
                         function: () {
-                          Future.delayed(const Duration(milliseconds: 1), () {
-                            _focusNodeProject.requestFocus();
-                            Navigator.pop(context);
+                          Future.delayed(Duration.zero, () {
+                             if(_showBody){
+                               _focusNodeDetail.requestFocus();
+                             }else{
+                               Navigator.pop(context);
+                             }
+
+
                           });
                         },
-                        focusNode: _focusNodeProject,
-                        textEditingController: _projectController,
+                        focusNode: _focusNodeTask,
+                        textEditingController: _taskController,
                       ),
                       if (_showBody)
                         BottomForm(function: (){}, focusNode: _focusNodeDetail, textEditingController: _detailController, hint: "Details"),
                       Row(
                         children: [
-                          Icon(Icons.menu),
+                          GestureDetector(
+                              onTap: (){
+                                modalSetState(() {
+
+                                  _showBody = !_showBody; // Toggle the visibility of the body
+                                  _focusNodeDetail.requestFocus();
+                                });
+
+                              },
+                              child: Icon(Icons.menu)),
                           IconButton(
                             onPressed: () {
                               SystemChannels.textInput.invokeMethod('TextInput.hide');
@@ -145,9 +162,11 @@ class BottomForm extends StatelessWidget {
     required this.focusNode,
     required this.textEditingController,
     required this.hint,
+    this.action,
   });
 
   final VoidCallback function;
+  final TextInputAction? action;
   final FocusNode focusNode;
   final TextEditingController textEditingController;
   final String hint;
@@ -188,3 +207,5 @@ class BottomForm extends StatelessWidget {
     );
   }
 }
+
+
