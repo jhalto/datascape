@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return AdvancedDrawer(
       controller: _drawerController,
-      drawer: DrawerDesign(),
+      drawer: const DrawerDesign(),
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: fieldColor,
@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Login(),
+                                builder: (context) => const Login(),
                               ),
                             );
                           },
@@ -58,7 +58,7 @@ class _HomeState extends State<Home> {
                               children: [
                                 Expanded(
                                   flex: 4,
-                                  child: Container(
+                                  child: SizedBox(
                                     
                                     width: double.infinity,
                                     child: Image.asset(
@@ -67,9 +67,9 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
+                                const Expanded(
                                   flex: 1,
-                                  child: const Text(
+                                  child: Text(
                                     "My Profile",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
                             children: [
                               Expanded(
                                 flex: 4,
-                                child: Container(
+                                child: SizedBox(
 
                                   width: double.infinity,
                                   child: Image.asset(
@@ -97,9 +97,9 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                               ),
-                              Expanded(
+                              const Expanded(
                                 flex: 1,
-                                child: const Text(
+                                child: Text(
                                   "My Profile",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -126,7 +126,7 @@ class _HomeState extends State<Home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Login(),
+                                builder: (context) => const Login(),
                               ),
                             );
                           },
@@ -135,7 +135,7 @@ class _HomeState extends State<Home> {
                               children: [
                                 Expanded(
                                   flex: 4,
-                                  child: Container(
+                                  child: SizedBox(
 
                                     width: double.infinity,
                                     child: Image.asset(
@@ -144,9 +144,9 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
+                                const Expanded(
                                   flex: 1,
-                                  child: const Text(
+                                  child: Text(
                                     "My Profile",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -165,7 +165,7 @@ class _HomeState extends State<Home> {
                             children: [
                               Expanded(
                                 flex: 4,
-                                child: Container(
+                                child: SizedBox(
 
                                   width: double.infinity,
                                   child: Image.asset(
@@ -174,9 +174,9 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                               ),
-                              Expanded(
+                              const Expanded(
                                 flex: 1,
-                                child: const Text(
+                                child: Text(
                                   "My Profile",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -203,7 +203,7 @@ class _HomeState extends State<Home> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Login(),
+                                builder: (context) => const Login(),
                               ),
                             );
                           },
@@ -212,7 +212,7 @@ class _HomeState extends State<Home> {
                               children: [
                                 Expanded(
                                   flex: 4,
-                                  child: Container(
+                                  child: SizedBox(
 
                                     width: double.infinity,
                                     child: Image.asset(
@@ -221,9 +221,9 @@ class _HomeState extends State<Home> {
                                     ),
                                   ),
                                 ),
-                                Expanded(
+                                const Expanded(
                                   flex: 1,
-                                  child: const Text(
+                                  child: Text(
                                     "My Profile",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -242,7 +242,7 @@ class _HomeState extends State<Home> {
                             children: [
                               Expanded(
                                 flex: 4,
-                                child: Container(
+                                child: SizedBox(
 
                                   width: double.infinity,
                                   child: Image.asset(
@@ -251,9 +251,9 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                               ),
-                              Expanded(
+                              const Expanded(
                                 flex: 1,
-                                child: const Text(
+                                child: Text(
                                   "My Profile",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,

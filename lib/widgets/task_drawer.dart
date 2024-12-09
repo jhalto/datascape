@@ -5,7 +5,6 @@ import 'package:datascape/task_pages/decision_log.dart';
 import 'package:datascape/task_pages/our_projects.dart';
 import 'package:datascape/task_pages/reports.dart';
 import 'package:datascape/task_pages/submission_tracker.dart';
-import 'package:datascape/task_pages/task_management.dart';
 import 'package:flutter/material.dart';
 
 import '../task_pages/dashboard.dart';
@@ -28,20 +27,20 @@ class _TaskDrawerState extends State<TaskDrawer> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          UserAccountsDrawerHeader(
-            currentAccountPictureSize: const Size(70, 70),
-            margin: const EdgeInsets.only(bottom: 0),
+          const UserAccountsDrawerHeader(
+            currentAccountPictureSize: Size(70, 70),
+            margin: EdgeInsets.only(bottom: 0),
             decoration: BoxDecoration(color: koraNeel),
             accountName: Padding(
-              padding: const EdgeInsets.only(top:25.0),
+              padding: EdgeInsets.only(top:25.0),
               child: Text(
                 "DATASCAPE", // Fallback while loading
-                style: const TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),
               ),
             ),
             accountEmail: Text(
               "", // Fallback while loading
-              style: const TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16),
             ),
             currentAccountPicture: CircleAvatar(
               backgroundImage: AssetImage("lib/images/lorem.png"),
@@ -59,7 +58,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Dashboard(),));
                   },
                 ),
                 ListTile(
@@ -70,7 +69,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => OurProjects(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const OurProjects(),));
                   },
                 ),
                 ListTile(
@@ -81,7 +80,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => TaskList(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const TaskList(),));
                   },
                 ),
                 ListTile(
@@ -92,7 +91,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => ComplianceTracker(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ComplianceTracker(),));
                   },
                 ),
                 ListTile(
@@ -103,7 +102,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => SubmissionTracker(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SubmissionTracker(),));
                   },
                 ),
                 ListTile(
@@ -114,7 +113,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Abp(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Abp(),));
                   },
                 ),
                 ListTile(
@@ -125,7 +124,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => DecisionLog(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const DecisionLog(),));
                   },
                 ),
                 ListTile(
@@ -136,7 +135,7 @@ class _TaskDrawerState extends State<TaskDrawer> {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Reports(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Reports(),));
                   },
                 ),
               ],

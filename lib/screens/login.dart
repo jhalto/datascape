@@ -1,9 +1,7 @@
-import 'dart:math';
 
 import 'package:datascape/widgets/button_collection.dart';
 import 'package:datascape/widgets/custom_button.dart';
 import 'package:datascape/widgets/custom_text_from_field.dart';
-import 'package:datascape/widgets/drawer_design.dart';
 import 'package:datascape/widgets/font_style_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +15,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
@@ -30,7 +28,7 @@ class _LoginState extends State<Login> {
 
           Container(
             width: double.infinity,
-            padding:  EdgeInsets.symmetric(horizontal: 40),
+            padding:  const EdgeInsets.symmetric(horizontal: 40),
 
             child: Form(
               child: Column(
@@ -39,30 +37,30 @@ class _LoginState extends State<Login> {
                 children: [
 
                     Text("Login",style: h1Title(),),
-                    SizedBox(height: 40,),
+                    const SizedBox(height: 40,),
                     customTextFromField(hintText: "Email", controller: _emailController),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     customTextFromField(hintText: "Password", controller: _passwordController),
-                   SizedBox(height: 10,),
-                  Align(
+                   const SizedBox(height: 10,),
+                  const Align(
                     alignment: Alignment.centerRight,
                     child: Text("Forgot Password"),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
-                  whiteButton(onPressed: (){}, widget: Text("Sign In")),
-                  SizedBox(
+                  whiteButton(onPressed: (){}, widget: const Text("Sign In")),
+                  const SizedBox(
                     height: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 100),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 100),
                     child: Divider(),
                   ),
-                  Text("or"),
-                    SizedBox(height: 20,),
+                  const Text("or"),
+                    const SizedBox(height: 20,),
                     whiteButton2(
                       context,
                         (){},

@@ -24,16 +24,16 @@ class customTextField extends StatelessWidget {
 
         enabledBorder: OutlineInputBorder(
 
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
               width: 3,
               color: Colors.black12
           ),
           borderRadius: BorderRadius.circular(25),
         ),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             width: 3,
             color: Colors.blueAccent,
           ),

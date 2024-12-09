@@ -17,17 +17,17 @@ class _TaskListState extends State<TaskList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Task Management Records"),
+        title: const Text("Task Management Records"),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
               ListView.builder(
-               physics: NeverScrollableScrollPhysics(),
+               physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 30,
                 itemBuilder: (context, index) => Container(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 5,
                   ),
@@ -41,7 +41,7 @@ class _TaskListState extends State<TaskList> {
                         children: [
                           Row(
                             children: [
-                              Expanded(
+                              const Expanded(
                                   flex: 1,
                                   child: Center(
                                     child: Icon(Icons.circle_outlined),
@@ -63,26 +63,26 @@ class _TaskListState extends State<TaskList> {
                                             children: [
                                               Text("Title",style: bodyBold(),),
 
-                                              Icon(CupertinoIcons.star),
+                                              const Icon(CupertinoIcons.star),
                                             ],
                                           ),
                                         ),
                                         Text("Project Name",style: taskRecordTitle(),),
-                                        SizedBox(height: 5,),
+                                        const SizedBox(height: 5,),
 
                                         Row(
                                           children: [
                                             Image.asset("lib/images/lorem.png",height: 40,width: 40,),
-                                            SizedBox(width: 10,),
+                                            const SizedBox(width: 10,),
                                             Column(
                                               children: [
                                                 Text("Assign By",style: bodyBold(),),
-                                                Text("Designation"),
+                                                const Text("Designation"),
                                               ],
                                             ),
                                           ],
                                         ),
-                                        Row(
+                                        const Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                           children: [
                                              Text("Date"),
@@ -109,7 +109,7 @@ class _TaskListState extends State<TaskList> {
 
         ),
       ),
-      floatingActionButton: AddTask()
+      floatingActionButton: const AddTask()
     );
   }
 }

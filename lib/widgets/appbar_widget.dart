@@ -38,9 +38,9 @@ class _customAppbarState extends State<customAppbar> {
                 crossAxisAlignment: CrossAxisAlignment.start,
       
                 children: [
-                  SizedBox(width: 10,),
-                  GestureDetector(onTap: widget.onPressed, child: Icon(Icons.menu,color: Colors.white,size: 30,)),
-                  SizedBox(width: 10,),
+                  const SizedBox(width: 10,),
+                  GestureDetector(onTap: widget.onPressed, child: const Icon(Icons.menu,color: Colors.white,size: 30,)),
+                  const SizedBox(width: 10,),
                   SizedBox(
                     width: 180,
                     child: Column(
@@ -55,24 +55,24 @@ class _customAppbarState extends State<customAppbar> {
               ),
               Row(
                 children: [
-                  Icon(CupertinoIcons.bell_fill,color: sada,size: 35,),
-                  SizedBox(width: 15,),
+                  const Icon(CupertinoIcons.bell_fill,color: sada,size: 35,),
+                  const SizedBox(width: 15,),
                   PopupMenuButton(
       
                     itemBuilder: (context) => [
                       PopupMenuItem(
                           onTap: (){
                             Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
-                              MaterialPageRoute(builder: (context) => Login()),
+                              MaterialPageRoute(builder: (context) => const Login()),
                                   (route) => false,
                             );
                           },
                           value: "Logout",
-                          child: Text("Logout")),
-                      PopupMenuItem(child: Text("hello")),
+                          child: const Text("Logout")),
+                      const PopupMenuItem(child: Text("hello")),
       
                     ],
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       radius: 20,
                       backgroundImage: AssetImage("lib/images/google-logo.png"),
                     ),

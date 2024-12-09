@@ -16,10 +16,10 @@ class NavBarBottom extends StatefulWidget {
 class _NavBarBottomState extends State<NavBarBottom> {
   int currentIndex = 0;
   List<Widget> myPages = [
-    Home(),
-    Attendance(),
-    Leave(),
-    Task(),
+    const Home(),
+    const Attendance(),
+    const Leave(),
+    const Task(),
 
   ];
 
@@ -28,7 +28,7 @@ class _NavBarBottomState extends State<NavBarBottom> {
     return Scaffold(
       body: myPages[currentIndex],
       bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(15), topRight: Radius.circular(15)),
         child: Theme(
           data: Theme.of(context).copyWith(
@@ -53,7 +53,7 @@ class _NavBarBottomState extends State<NavBarBottom> {
               },
 
 
-              items: [
+              items: const [
                 BottomNavigationBarItem(
                   backgroundColor: koraNeel,
                   icon: Icon(Icons.home),

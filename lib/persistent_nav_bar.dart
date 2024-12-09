@@ -1,11 +1,8 @@
 import 'package:datascape/screens/attendance.dart';
 import 'package:datascape/screens/home.dart';
 import 'package:datascape/screens/leave.dart';
-import 'package:datascape/screens/task_list.dart';
 import 'package:datascape/screens/task.dart';
-import 'package:datascape/widgets/drawer_design.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
 
 class PersistentNavBar extends StatefulWidget {
@@ -24,28 +21,28 @@ class _PersistentNavBarState extends State<PersistentNavBar> {
        navBarHeight: MediaQuery.of(context).size.height *.07,
       tabs: [
         PersistentTabConfig(
-          screen: Home(),
+          screen: const Home(),
           item: ItemConfig(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
 
           ),
         ),
         PersistentTabConfig(
-          screen: Attendance(),
+          screen: const Attendance(),
           item: ItemConfig(
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person),
           ),
         ),
         PersistentTabConfig(
-          screen: Leave(),
+          screen: const Leave(),
           item: ItemConfig(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
         ),
         PersistentTabConfig(
-          screen: Task(),
+          screen: const Task(),
           item: ItemConfig(
-            icon: Icon(Icons.task),
+            icon: const Icon(Icons.task),
           ),
         ),
       ],

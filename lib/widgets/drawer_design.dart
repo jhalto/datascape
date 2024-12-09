@@ -1,10 +1,7 @@
-import 'dart:convert';
-import 'package:datascape/task_pages/dashboard.dart';
 import 'package:datascape/widgets/color_widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_button.dart';
-import 'custom_colors.dart';
 
 
 class DrawerDesign extends StatefulWidget {
@@ -24,17 +21,17 @@ class _DrawerDesignState extends State<DrawerDesign> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          UserAccountsDrawerHeader(
-            currentAccountPictureSize: const Size(70, 70),
-            margin: const EdgeInsets.only(bottom: 0),
+          const UserAccountsDrawerHeader(
+            currentAccountPictureSize: Size(70, 70),
+            margin: EdgeInsets.only(bottom: 0),
             decoration: BoxDecoration(color: koraNeel),
             accountName: Text(
              "Zobayer Arman Nadim", // Fallback while loading
-              style: const TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18),
             ),
             accountEmail: Text(
              "zobayerarmannadim@gmail.com", // Fallback while loading
-              style: const TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 16),
             ),
             currentAccountPicture: CircleAvatar(
               backgroundImage:

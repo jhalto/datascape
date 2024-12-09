@@ -32,11 +32,11 @@ Widget build(BuildContext context) {
       fillColor: fieldColor,
       hintText: hintText,
       hintStyle: hintTextStyle(),
-      contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
       floatingLabelBehavior: FloatingLabelBehavior.never,
       enabledBorder: OutlineInputBorder(
 
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
 
           width: 3,
           color: fieldColor,
@@ -47,7 +47,7 @@ Widget build(BuildContext context) {
       ),
 
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           width: 2.5,
           color: nil,
 

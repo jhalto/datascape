@@ -10,13 +10,13 @@ myStyle([double? fs, Color? clr,FontWeight? fw]){
   );
 }
 h1Title(){
-  return TextStyle(
+  return const TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 50,
   );
 }
 taskRecordTitle(){
-  return TextStyle(
+  return const TextStyle(
      fontWeight: FontWeight.bold,
     fontSize: 14,
   );

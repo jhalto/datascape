@@ -22,7 +22,10 @@ class _AddTaskState extends State<AddTask> {
   TimeOfDay? selectedTime;
   DateTime focusDate = DateTime.now();
   bool _showBody = false;
+  final List<String> projectNames = ['Project A', 'Project B', 'Project C', 'Project D'];
 
+  // Variable to store the selected project
+  String? selectedProject;
   /// Reset all data
   void _resetData() {
     setState(() {
@@ -47,129 +50,25 @@ class _AddTaskState extends State<AddTask> {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> projectNames = ['Project A', 'Project B', 'Project C'];
+
     return FloatingActionButton(
       onPressed: () {
         showModalBottomSheet(
           isScrollControlled: true,
           context: context,
-          builder: (context) {
-            return StatefulBuilder(
-              builder: (BuildContext context, StateSetter modalSetState) {
-                Future.delayed(Duration.zero, () {
-                  _focusNodeTask.requestFocus();
-                });
-                return Padding(
-                  padding: EdgeInsets.only(
-
-                    bottom: MediaQuery.of(context).viewInsets.bottom,
-                  ),
-                  child: Wrap(
-                    children: [
-                      BottomForm(
-                        hint: "Task Name",
-                        function: () {
-                          Future.delayed(Duration.zero, () {
-                            if (_showBody) {
-                              _focusNodeDetail.requestFocus();
-                            } else {
-                              Navigator.pop(context);
-                            }
-                          });
-                        },
-                        focusNode: _focusNodeTask,
-                        textEditingController: _taskController,
-                      ),
-                      if (_showBody)
-                        BottomForm(
-                          function: () {},
-                          focusNode: _focusNodeDetail,
-                          textEditingController: _detailController,
-                          hint: "Details",
-                        ),
-                      Text(
-                        selectedDate != null
-                            ? "${selectedDate!.toLocal().toString().split(' ')[0]} ${selectedTime?.format(context) ?? ''}"
-                            : "",
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              modalSetState(() {
-                                _showBody = !_showBody;
-                                _focusNodeDetail.requestFocus();
-                              });
-                            },
-                            child: const Icon(Icons.menu),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              SystemChannels.textInput.invokeMethod('TextInput.hide');
-                              showAdaptiveDialog(
-                                context: context,
-                                builder: (context) => Dialog(
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          height: 350,
-                                          child: TableCalendar(
-                                            focusedDay: focusDate,
-                                            firstDay: DateTime.utc(2024),
-                                            lastDay: DateTime.utc(2030),
-                                            selectedDayPredicate: (day) {
-                                              return isSameDay(selectedDate, day);
-                                            },
-                                            onDaySelected: (selectedDay, focusedDay) {
-                                              modalSetState(() {
-                                                selectedDate = selectedDay;
-                                                focusDate = focusedDay;
-                                              });
-                                              Navigator.pop(context); // Close dialog
-                                            },
-                                          ),
-                                        ),
-                                        IconButton(
-                                          onPressed: () async {
-                                            TimeOfDay? time = await showTimePicker(
-                                              context: context,
-                                              initialTime: TimeOfDay.now(),
-                                            );
-                                            if (time != null) {
-                                              modalSetState(() {
-                                                selectedTime = time;
-                                              });
-                                            }
-                                          },
-                                          icon: const Icon(CupertinoIcons.time),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                            icon: const Icon(CupertinoIcons.time),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-
-                            },
-                            child: const Icon(Icons.details),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 16),
-                    ],
-                  ),
-                );
-              },
-            );
-          },
-        ).whenComplete(() {
-          _resetData();
-        });
+          builder: (context) => AddTaskBottomSheet(
+            projectNames: projectNames,
+            onSave: (selectedProject, taskName, details, date, time) {
+              // Handle the saved data here
+              print("Project: $selectedProject");
+              print("Task: $taskName");
+              print("Details: $details");
+              print("Date: $date");
+              print("Time: $time");
+            },
+          ),
+        );
       },
       child: const Icon(Icons.add),
     );
@@ -215,6 +114,146 @@ class BottomForm extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+class AddTaskBottomSheet extends StatefulWidget {
+  final List<String> projectNames;
+  final Function(String?, String, String, DateTime?, TimeOfDay?) onSave;
+
+  const AddTaskBottomSheet({
+    super.key,
+    required this.projectNames,
+    required this.onSave,
+  });
+
+  @override
+  State<AddTaskBottomSheet> createState() => _AddTaskBottomSheetState();
+}
+
+class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
+  final TextEditingController _taskController = TextEditingController();
+  final TextEditingController _detailController = TextEditingController();
+
+  String? selectedProject;
+  DateTime? selectedDate;
+  TimeOfDay? selectedTime;
+  bool showDetails = false;
+
+  @override
+  void dispose() {
+    _taskController.dispose();
+    _detailController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
+      child: Wrap(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: DropdownButton<String>(
+              isExpanded: true,
+              underline: const SizedBox.shrink(),
+              value: selectedProject,
+              hint: const Text("Select Project"),
+              items: widget.projectNames.map((project) {
+                return DropdownMenuItem(
+                  value: project,
+                  child: Text(project),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedProject = value;
+                });
+              },
+            ),
+          ),
+          TextField(
+            controller: _taskController,
+            decoration: const InputDecoration(
+              hintText: "Task Name",
+              contentPadding: EdgeInsets.all(14.0),
+            ),
+          ),
+          if (showDetails)
+            TextField(
+              controller: _detailController,
+              decoration: const InputDecoration(
+                hintText: "Details",
+                contentPadding: EdgeInsets.all(14.0),
+              ),
+            ),
+          Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    selectedDate != null
+                        ? "${selectedDate!.toLocal().toString().split(' ')[0]} ${selectedTime?.format(context) ?? ''}"
+                        : "Select Date & Time",
+                  ),
+                ),
+                IconButton(
+                  onPressed: () async {
+                    FocusScope.of(context).unfocus();
+                    DateTime? date = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime.utc(2024),
+                      lastDate: DateTime.utc(2030),
+                    );
+                    if (date != null) {
+                      TimeOfDay? time = await showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.now(),
+                      );
+                      setState(() {
+                        selectedDate = date;
+                        selectedTime = time;
+                      });
+                    }
+                  },
+                  icon: const Icon(Icons.calendar_today),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    showDetails = !showDetails;
+                  });
+                },
+                child: Text(showDetails ? "Hide Details" : "Add Details"),
+              ),
+              const Spacer(),
+              ElevatedButton(
+                onPressed: () {
+                  widget.onSave(
+                    selectedProject,
+                    _taskController.text,
+                    _detailController.text,
+                    selectedDate,
+                    selectedTime,
+                  );
+                  Navigator.pop(context);
+                },
+                child: const Text("Save Task"),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

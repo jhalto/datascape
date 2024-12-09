@@ -16,10 +16,10 @@ class CurvedNavBar extends StatefulWidget {
 class _CurvedNavBarState extends State<CurvedNavBar> {
   int currentIndex = 0;
   List<Widget> myPages = [
-    Home(),
-    Attendance(),
-    Leave(),
-    Task(),
+    const Home(),
+    const Attendance(),
+    const Leave(),
+    const Task(),
 
   ];
   @override
@@ -34,11 +34,11 @@ class _CurvedNavBarState extends State<CurvedNavBar> {
          });
 
        },
-        animationCurve: FlippedCurve(Curves.ease),
-        animationDuration: Duration(milliseconds: 250),
+        animationCurve: const FlippedCurve(Curves.ease),
+        animationDuration: const Duration(milliseconds: 250),
         backgroundColor: sada,
         color: koraNeel,
-        items: [
+        items: const [
          Icon(Icons.home,color: sada,),
          Icon(Icons.co_present_rounded,color: sada,),
          Icon(Icons.exit_to_app,color: sada,),
